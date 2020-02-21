@@ -17,8 +17,11 @@ Step 3: copy pyradiomics to folder ./data/radiomics_results/
   
 Step 4: create manifest.csv file in  folder ./data/radiomics_results/ 
   sample:
+  
   radiomicsdir,studyid,clinicaltrialsubjectid,imageid
+  
   xxxxxxxxxxx10-multires.tif,Rutgers:Lung,10,xxxxxxxxxxx10
+  
   xxxxxxxxxxx20-multires.tif,Rutgers:Lung,20,xxxxxxxxxxx20
   
 Step 5: run command to load pyradiomics
