@@ -26,6 +26,12 @@ Step 4: create manifest.csv file in  folder ./data/radiomics_results/
   
   xxxxxxxxxxx20-multires.tif,Rutgers:Lung,20,xxxxxxxxxxx20
   
-Step 5: run command to load pyradiomics
+Step 5: edit radiomics_features_selected.txt if necessary
+
+cd /data/folder and open radiomics_features_selected.txt file ,
+then change yes to no if you don't want to load that pyradiomics feature to database.
+Default sets to yes for all 25 pyradiomics features
+  
+Step 6: run command to load pyradiomics
 
   docker exec quip-radiomicsloader loadPyradiomics --src radiomics_results --collectionname collectionname --user username --passwd password
