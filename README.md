@@ -6,6 +6,7 @@ Step 1: download source code from github repository;
      git clone https://github.com/SBU-BMI/pyradiomicsLoader.git
      
 Step 2: build and run docker container ;
+
   cd pyradiomicsLoader folder;
   
   docker-compose -f docker-compose.yml build
