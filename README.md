@@ -7,7 +7,9 @@ Step 1: download source code from git repository;
      
 Step 2: build and run docker container ;
   cd pyradiomicsLoader folder;
+  
   docker-compose -f docker-compose.yml build
+  
   docker-compose -f docker-compose.yml up
   
 Step 3: copy pyradiomics to folder ./data/radiomics_results/ 
@@ -20,4 +22,5 @@ Step 4: create manifest.csv file in  folder ./data/radiomics_results/
   xxxxxxxxxxx20-multires.tif,Rutgers:Lung,20,xxxxxxxxxxx20
   
 Step 5: run command to load pyradiomics
+
   docker exec quip-radiomicsloader loadPyradiomics --src radiomics_results --collectionname collectionname --user username --passwd password
