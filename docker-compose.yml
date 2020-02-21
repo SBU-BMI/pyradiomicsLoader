@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  radiomicsloader:
+    build: ./
+    container_name: quip-radiomicsloader
+    image: quip_radiomicsloader
+    volumes:
+      - ./data/:/data
+    networks:
+      - quip_distro_default
+
+networks:
+  quip_distro_default:
+   name: quip_distro_default
