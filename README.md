@@ -16,6 +16,7 @@ Step 3: copy pyradiomics to folder ./data/radiomics_results/
   each image with one individual subfolder.
   
 Step 4: create manifest.csv file in  folder ./data/radiomics_results/ 
+
   sample:
   
   radiomicsdir,studyid,clinicaltrialsubjectid,imageid
