@@ -54,6 +54,7 @@ def chech_segment_record(slide_id):
 
 def read_radiomics_feature_selected():
   #read radiomics_feature_selected.txt file   
+  print ("read radiomics_feature_selected.txt file");
   feature_array=[]; 
   radiomics_feature_selected = "radiomics_features_selected.txt"
   feature_selected_file_path = os.path.join("/data/", radiomics_feature_selected); 
@@ -126,9 +127,15 @@ def save2Heatmap(pdb,feature_value_total_array,feature):
   max_value=0.0;  
   feature_value_list=[];
   for mata_data in feature_value_total_array:
-    feature_value=mata_data[feature]; 
+    #Check if key exists in dictionary 
+    if feature in mata_data:    
+      feature_value=mata_data[feature]; 
+    else: 
+        continue;  
+                
     if feature_value !='none':
       feature_value_list.append(feature_value);
+      
   min_value=min(feature_value_list);    
   max_value=max(feature_value_list); 
   min_value=float("{0:.2f}".format(min_value))
@@ -171,8 +178,13 @@ def save2Heatmap(pdb,feature_value_total_array,feature):
   dict_patch['provenance'] = dict_provenance   
  
   data_array=[];  
-  for mata_data in feature_value_total_array:  
-    feature_value= mata_data[feature] ;
+  for mata_data in feature_value_total_array: 
+    #Check if key exists in dictionary 
+    if feature in mata_data:    
+      feature_value=mata_data[feature]; 
+    else: 
+        continue; 
+           
     if feature_value !='none':
       tmp_item=[];
       imageW=mata_data['image_width']; 
@@ -229,7 +241,7 @@ if __name__ == "__main__":
                 if not os.path.exists(file_loc):
                   eprint('File location not found:', file_loc)
                   exit(1)                
-                print (file_loc);
+                #print (file_loc);
                 
                 if pathdb:
                     pdb["study"] = row[1]
@@ -242,7 +254,7 @@ if __name__ == "__main__":
                         if is_blank(_id):
                             eprint('Slide not found ' + pdb["imageid"])
                             exit(1)
-                        print (_id);    
+                        #print (_id);    
                     except MyException as e:
                         details = e.args[0]
                         eprint(details)
